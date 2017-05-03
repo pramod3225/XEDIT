@@ -15,7 +15,7 @@ import { PreTreeService} from "./pre-tree.service";
 providers:[PreTreeService]
 })
 export class PreTreeComponent implements OnInit{ 
-  treeItems;
+  treeItems: any;
 
   constructor(private preTreeService: PreTreeService) { }
 

@@ -21,6 +21,7 @@ import { HeroService} from "./hero.service";
       </div>
       <div class="col-lg-8">
         <pre-tree></pre-tree>
+        <CKEDITOR> </CKEDITOR>
       </div>
     </div>
   </div>
