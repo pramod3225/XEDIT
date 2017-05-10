@@ -2,24 +2,22 @@ import { Component,OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService} from "./hero.service";
 
-
+// <hero-detail [hero]="selectedHero"></hero-detail>
 
 @Component({
   selector: 'my-app',
-  template: `
-  <h1>{{title}}</h1>
-  <h2>My Heroes</h2>
+  template: ` 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-2">
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
             <span class="badge pull-left">{{hero.id}}</span> {{hero.name}}
           </li>
         </ul>
-        <hero-detail [hero]="selectedHero"></hero-detail>
+        
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-10">
         <pre-tree></pre-tree>
         <CKEDITOR> </CKEDITOR>
       </div>
