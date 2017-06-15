@@ -15,7 +15,7 @@ import { HeroService} from "./hero.service";
             <span class="badge pull-left">{{hero.id}}</span> {{hero.name}}
           </li>
         </ul>
-        
+        <hero-detail [hero]="selectedHero"></hero-detail>
       </div>
       <div class="col-lg-10">
         <pre-tree></pre-tree>
