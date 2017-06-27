@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-import { Hero } from './hero';
-import { HeroService} from "./hero.service";
+// import { Hero } from './hero';
+// import { HeroService} from "./hero.service";
 
 // <hero-detail [hero]="selectedHero"></hero-detail>
 
@@ -11,7 +11,7 @@ import { HeroService} from "./hero.service";
   <order></order>
   `,
   
-providers:[HeroService]
+// providers:[HeroService]
 })
 export class AppComponent {
   // title = 'Tour of Heroes';

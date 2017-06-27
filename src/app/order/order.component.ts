@@ -1,28 +1,53 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OrderItem } from './order';
+import { OrderService } from './order.service';
+
+
 
 @Component({
     moduleId: module.id,
     selector: 'order',
     templateUrl: 'order.component.html',
-    styles:[`
-.new-order-panel{margin: 0px;}
-#page-wrapper{
-    margin:15px;
-}
-.order-list{
-    border-right: 1px #ddd solid;
-    padding:15px 25px 15px 25px;
-}
-.panel-body{
-    padding:0;
-}
-.table-order{
-    margin-top:10px;
-} 
-`]
-    
+    styleUrls: ['order.component.css'],
+    providers: [OrderService]
 })
-export class OrderComponent{ 
+export class OrderComponent implements OnInit {
+    currentTableNo: Number;
+    currentEmloyee: String;
+    orderItems: OrderItem[];
+    newEditOrder: OrderItem ;
 
-  
+    constructor(private orderService: OrderService) { }
+
+    ngOnInit(): void {
+        this.setNewOrderEmpty();
+        this.orderService.getOrders().then(orders => this.orderItems = orders);
+    }
+    keyDownFunction(event: any) {
+        if (event.keyCode == 13) {
+            if (this.isNewOrderEmpty()) {
+                
+            }
+            else{
+                this.orderItems.push(this.newEditOrder);
+                this.setNewOrderEmpty();
+            }
+            
+           
+        }
+
+    }
+    setNewOrderEmpty() {
+        this.newEditOrder = {
+            itemCode: "",
+            itemName: "",
+            quantity: 1,
+            rate: null,
+            customisation: ""
+        }
+    }
+    isNewOrderEmpty(){
+        return this.newEditOrder.itemCode == "" || this.newEditOrder.itemName == "" || this.newEditOrder.rate == null;
+    }
+
 }
