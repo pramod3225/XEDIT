@@ -4,11 +4,12 @@ export class OrderItem {
     quantity: Number;
     rate: Number;
     customisation: String;
-    constructor() {
-        this.itemCode = "";
-        this.itemName = "";
-        this.quantity = 1;
-        this.rate = null;
-        this.customisation = "";
-    }
+    
+}
+
+export class TableOrder{
+    tableNo : String;
+    EmpName: String;    
+    isBillGenerated :boolean = false;
+    orderItems :OrderItem[]=[];
 }
