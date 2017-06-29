@@ -7,12 +7,12 @@ import {  OrderItem,TableOrder} from './order';
 export class OrderService {
     private tableOrders :TableOrder[] = [];
 
-    getOrders():Promise<OrderItem[]> {
-        return Promise.resolve([
-            // {itemCode: "12",  itemName: "TEA",  quantity: 1,   rate: 20, customisation: ""},
-            // {itemCode: "25",  itemName: "VEG",  quantity: 1,   rate: 40, customisation: ""}
-            ]);
-    }
+    // getOrders():Promise<OrderItem[]> {
+    //     return Promise.resolve([
+    //         // {itemCode: "12",  itemName: "TEA",  quantity: 1,   rate: 20, customisation: ""},
+    //         // {itemCode: "25",  itemName: "VEG",  quantity: 1,   rate: 40, customisation: ""}
+    //         ]);
+    // }
     getEmptyOrder(): Promise<OrderItem> {
         return Promise.resolve({
             itemCode: "",
@@ -24,10 +24,13 @@ export class OrderService {
     }
     getOrdersByTableNo(tableNo:String):Promise<TableOrder>{
         for (var i = 0,len = this.tableOrders.length; i < len; i++) {
-            if(this.tableOrders[i].tableNo==tableNo) 
-                return Promise.resolve(this.tableOrders[i]);          
+            if(this.tableOrders[i].tableNo==tableNo) {
+                console.log(this.tableOrders);
+                return Promise.resolve(this.tableOrders[i]);
+            }          
             
         }
+        console.log(this.tableOrders);
         return Promise.resolve(new TableOrder());
     }
     addOrderToTableNo(tableNo: String, empName: String, orderItem: OrderItem): boolean {
@@ -50,10 +53,12 @@ export class OrderService {
         }
 
     }
-    // getHerosSlowly():Promise<OrderItem[]>{
-    //     return new Promise(resolve=>{
-    //         setTimeout(() =>resolve(this.getHeros()) , 5000);
-    //     });
-    // }
+    getTablesAndEmpDetails(){
+         return Promise.resolve({
+            tables:[{no:'0',ac:1},{no:'1',ac:1},{no:'2',ac:1},{no:'3',ac:1},{no:'4',ac:1},{no:'5',ac:1},{no:'6',ac:1},{no:'7',ac:1},{no:'8',ac:1}],
+            emps:[{}],
+            items:[{},{}]
+         });
+    }    
 
 }
